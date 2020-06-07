@@ -1,4 +1,5 @@
-package com.company;
+package com.company.one;
+
 
 public class LinkedList {
     private int size;

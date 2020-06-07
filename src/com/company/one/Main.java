@@ -1,17 +1,6 @@
-package com.company;
+package com.company.one;
 
 
-/**
- * LinkedList.java
- *
- **/
-
-
-
-/**
- * Main.java
- *
- **/
 
 public class Main {
 
