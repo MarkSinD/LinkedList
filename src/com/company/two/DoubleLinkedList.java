@@ -1,16 +1,40 @@
 package com.company.two;
 
-class LinkedList {
+class DoubleLinkedList {
 
-    protected Node start;
-    protected Node end;
+    protected DoubleLinkedListItem start;
+    protected DoubleLinkedListItem end;
     public int size;
 
     /* Constructor */
-    public LinkedList() {
+    public DoubleLinkedList() {
         start = null;
         end = null;
         size = 0;
+    }
+
+    public Integer findFirstItem(){
+        if (size == 0) {
+            System.out.print("empty\n");
+            return null;
+        }
+        return start.getData();
+    }
+
+    public Integer findLastItem(){
+        if (size == 0) {
+            System.out.print("empty\n");
+            return null;
+        }
+        return end.getData();
+    }
+
+    public DoubleLinkedListItem getFirst(){
+        return start;
+    }
+
+    public DoubleLinkedListItem getLast(){
+        return end;
     }
 
     /* Function to check if list is empty */
@@ -26,13 +50,13 @@ class LinkedList {
     /* Function to insert element at begining */
 
     public void insertAtStart(int val) {
-        Node nptr = new Node(val, null, null);
+        DoubleLinkedListItem nptr = new DoubleLinkedListItem(val, null, null);
         if (start == null) {
             start = nptr;
             end = start;
         } else {
-            start.setLinkPrev(nptr);
-            nptr.setLinkNext(start);
+            start.setPrev(nptr);
+            nptr.setNext(start);
             start = nptr;
         }
         size++;
@@ -44,14 +68,14 @@ class LinkedList {
 
     {
 
-        Node nptr = new Node(val, null, null);
+        DoubleLinkedListItem nptr = new DoubleLinkedListItem(val, null, null);
 
         if (start == null) {
             start = nptr;
             end = start;
         } else {
-            nptr.setLinkPrev(end);
-            end.setLinkNext(nptr);
+            nptr.setPrev(end);
+            end.setNext(nptr);
             end = nptr;
         }
         size++;
@@ -60,22 +84,22 @@ class LinkedList {
     /* Function to insert element at position */
 
     public void insertAtPos(int val, int pos) {
-        Node nptr = new Node(val, null, null);
+        DoubleLinkedListItem nptr = new DoubleLinkedListItem(val, null, null);
         if (pos == 1) {
             insertAtStart(val);
             return;
         }
 
-        Node ptr = start;
+        DoubleLinkedListItem ptr = start;
         for (int i = 2; i <= size; i++) {
             if (i == pos) {
-                Node tmp = ptr.getLinkNext();
-                ptr.setLinkNext(nptr);
-                nptr.setLinkPrev(ptr);
-                nptr.setLinkNext(tmp);
-                tmp.setLinkPrev(nptr);
+                DoubleLinkedListItem tmp = ptr.getNext();
+                ptr.setNext(nptr);
+                nptr.setPrev(ptr);
+                nptr.setNext(tmp);
+                tmp.setPrev(nptr);
             }
-            ptr = ptr.getLinkNext();
+            ptr = ptr.getNext();
         }
         size++;
     }
@@ -91,36 +115,35 @@ class LinkedList {
                 return;
             }
 
-            start = start.getLinkNext();
-            start.setLinkPrev(null);
+            start = start.getNext();
+            start.setPrev(null);
             size--;
             return;
         }
 
         if (pos == size) {
-            end = end.getLinkPrev();
-            end.setLinkNext(null);
+            end = end.getPrev();
+            end.setNext(null);
             size--;
         }
 
-        Node ptr = start.getLinkNext();
+        DoubleLinkedListItem ptr = start.getNext();
 
         for (int i = 2; i <= size; i++) {
             if (i == pos) {
-                Node p = ptr.getLinkPrev();
-                Node n = ptr.getLinkNext();
-                p.setLinkNext(n);
-                n.setLinkPrev(p);
+                DoubleLinkedListItem p = ptr.getPrev();
+                DoubleLinkedListItem n = ptr.getNext();
+                p.setNext(n);
+                n.setPrev(p);
                 size--;
                 return;
             }
 
-            ptr = ptr.getLinkNext();
+            ptr = ptr.getNext();
         }
     }
 
     /* Function to display status of list */
-
     public void display() {
         System.out.print("\nDoubly Linked List = ");
 
@@ -129,18 +152,18 @@ class LinkedList {
             return;
         }
 
-        if (start.getLinkNext() == null) {
+        if (start.getNext() == null) {
             System.out.println(start.getData());
             return;
         }
 
-        Node ptr = start;
+        DoubleLinkedListItem ptr = start;
         System.out.print(start.getData() + " <-> ");
-        ptr = start.getLinkNext();
+        ptr = start.getNext();
 
-        while (ptr.getLinkNext() != null) {
+        while (ptr.getNext() != null) {
             System.out.print(ptr.getData() + " <-> ");
-            ptr = ptr.getLinkNext();
+            ptr = ptr.getNext();
         }
         System.out.print(ptr.getData() + "\n");
     }

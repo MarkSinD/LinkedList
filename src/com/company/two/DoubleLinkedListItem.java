@@ -1,20 +1,19 @@
 package com.company.two;
 
-class Node {
+class DoubleLinkedListItem {
 
     protected int data;
-    protected Node next, prev;
+    protected DoubleLinkedListItem next, prev;
 
     /* Constructor */
-
-    public Node() {
+    public DoubleLinkedListItem() {
         next = null;
         prev = null;
         data = 0;
     }
 
     /* Constructor */
-    public Node(int d, Node n, Node p) {
+    public DoubleLinkedListItem(int d, DoubleLinkedListItem n, DoubleLinkedListItem p) {
         data = d;
         next = n;
         prev = p;
@@ -22,25 +21,25 @@ class Node {
 
     /* Function to set link to next node */
 
-    public void setLinkNext(Node n) {
+    public void setNext(DoubleLinkedListItem n) {
         next = n;
     }
 
     /* Function to set link to previous node */
 
-    public void setLinkPrev(Node p) {
+    public void setPrev(DoubleLinkedListItem p) {
         prev = p;
     }
 
     /* Funtion to get link to next node */
 
-    public Node getLinkNext() {
+    public DoubleLinkedListItem getNext() {
         return next;
     }
 
     /* Function to get link to previous node */
 
-    public Node getLinkPrev() {
+    public DoubleLinkedListItem getPrev() {
         return prev;
     }
 

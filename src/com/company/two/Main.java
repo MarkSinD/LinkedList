@@ -2,12 +2,12 @@ package com.company.two;
 
 import java.util.Scanner;
 
-public class DoublyLinkedList {
+public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
         /* Creating object of linkedList */
-        LinkedList list = new LinkedList();
+        DoubleLinkedList list = new DoubleLinkedList();
         System.out.println("Doubly Linked List Test\n");
         char ch;
 
@@ -21,6 +21,8 @@ public class DoublyLinkedList {
             System.out.println("4. delete at position");
             System.out.println("5. check empty");
             System.out.println("6. get size");
+            System.out.println("7. get first item");
+            System.out.println("8. get last item");
 
             int choice = scan.nextInt();
 
@@ -61,6 +63,14 @@ public class DoublyLinkedList {
 
                 case 6:
                     System.out.println("Size = " + list.getSize() + " \n");
+                    break;
+
+                case 7:
+                    System.out.println("first item = " + list.findFirstItem());
+                    break;
+
+                case 8:
+                    System.out.println("last item = " + list.findLastItem());
                     break;
 
                 default:
