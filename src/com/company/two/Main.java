@@ -40,19 +40,19 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Enter integer element to insert before");
+                    System.out.println("Enter integer element to insert");
                     int insertNum = scan.nextInt();
-                    System.out.println("Enter value");
+                    System.out.println("Enter insert value before");
                     int valBefore = scan.nextInt();
-                    list.insertBefore(insertNum, valBefore);
+                    list.insertBefore(valBefore, insertNum);
                     break;
 
                 case 4:
                     System.out.println("Enter integer element to insert after");
                     int insertAfter = scan.nextInt();
-                    System.out.println("Enter value");
-                    int posAfter = scan.nextInt();
-                    list.insertAfter(insertAfter, posAfter);
+                    System.out.println("Enter insert value after");
+                    int valAfter = scan.nextInt();
+                    list.insertAfter(valAfter, insertAfter);
                     break;
 
                 case 5:
