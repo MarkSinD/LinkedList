@@ -7,7 +7,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         /* Creating object of linkedList */
-        DoubleLinkedList list = new DoubleLinkedList();
+        DoubleLinkedList<Integer> list = new DoubleLinkedList();
         System.out.println("Doubly Linked List Test\n");
         char ch;
 
@@ -17,12 +17,14 @@ public class Main {
             System.out.println("\nDoubly Linked List Operations\n");
             System.out.println("1. insert at begining");
             System.out.println("2. insert at end");
-            System.out.println("3. insert at position");
-            System.out.println("4. delete at position");
-            System.out.println("5. check empty");
-            System.out.println("6. get size");
-            System.out.println("7. get first item");
-            System.out.println("8. get last item");
+            System.out.println("3. insert before");
+            System.out.println("4. insert after");
+            System.out.println("5. insert at position");
+            System.out.println("6. delete at position");
+            System.out.println("7. check empty");
+            System.out.println("8. get size");
+            System.out.println("9. get first item");
+            System.out.println("10. get last item");
 
             int choice = scan.nextInt();
 
@@ -38,17 +40,33 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Enter integer element to insert");
-                    int num = scan.nextInt();
+                    System.out.println("Enter integer element to insert before");
+                    int insertNum = scan.nextInt();
+                    System.out.println("Enter value");
+                    int valBefore = scan.nextInt();
+                    list.insertBefore(insertNum, valBefore);
+                    break;
+
+                case 4:
+                    System.out.println("Enter integer element to insert after");
+                    int insertAfter = scan.nextInt();
+                    System.out.println("Enter value");
+                    int posAfter = scan.nextInt();
+                    list.insertAfter(insertAfter, posAfter);
+                    break;
+
+                case 5:
+                    System.out.println("Enter integer element at position");
+                    int data = scan.nextInt();
                     System.out.println("Enter position");
                     int pos = scan.nextInt();
                     if (pos < 1 || pos > list.getSize())
                         System.out.println("Invalid position\n");
                     else
-                        list.insertAtPos(num, pos);
+                        list.insertAtPos(data, pos);
                     break;
 
-                case 4:
+                case 6:
                     System.out.println("Enter position");
                     int p = scan.nextInt();
                     if (p < 1 || p > list.getSize())
@@ -57,19 +75,19 @@ public class Main {
                         list.deleteAtPos(p);
                     break;
 
-                case 5:
+                case 7:
                     System.out.println("Empty status = " + list.isEmpty());
                     break;
 
-                case 6:
+                case 8:
                     System.out.println("Size = " + list.getSize() + " \n");
                     break;
 
-                case 7:
+                case 9:
                     System.out.println("first item = " + list.findFirstItem());
                     break;
 
-                case 8:
+                case 10:
                     System.out.println("last item = " + list.findLastItem());
                     break;
 

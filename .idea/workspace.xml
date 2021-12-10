@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e92f906-fcd9-41e3-b3fa-85ec7ee03edf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/two/DoublyLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/two/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/two/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/two/DoubleLinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/two/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/two/DoubleLinkedListItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/two/DoubleLinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/two/DoubleLinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/two/DoubleLinkedListItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/two/DoubleLinkedListItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/two/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/two/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,17 +41,34 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="LinkedList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.one.LinkedList" />
       <module name="linkTest" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.company.one.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.company.two.Main" />
+      <module name="linkTest" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.two.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -86,9 +102,11 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.LinkedList" />
+      <item itemvalue="Application.Main (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.LinkedList" />
@@ -107,11 +125,12 @@
       <option name="presentableId" value="Default" />
       <updated>1591557419953</updated>
       <workItem from="1591557423034" duration="5486000" />
+      <workItem from="1639153328310" duration="7629000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

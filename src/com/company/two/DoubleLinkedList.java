@@ -1,9 +1,9 @@
 package com.company.two;
 
-class DoubleLinkedList {
+class DoubleLinkedList<T extends Comparable<T>> {
 
-    protected DoubleLinkedListItem start;
-    protected DoubleLinkedListItem end;
+    protected DoubleLinkedListItem<T> start;
+    protected DoubleLinkedListItem<T> end;
     public int size;
 
     /* Constructor */
@@ -13,7 +13,7 @@ class DoubleLinkedList {
         size = 0;
     }
 
-    public Integer findFirstItem(){
+    public T findFirstItem(){
         if (size == 0) {
             System.out.print("empty\n");
             return null;
@@ -21,7 +21,7 @@ class DoubleLinkedList {
         return start.getData();
     }
 
-    public Integer findLastItem(){
+    public T findLastItem(){
         if (size == 0) {
             System.out.print("empty\n");
             return null;
@@ -29,11 +29,11 @@ class DoubleLinkedList {
         return end.getData();
     }
 
-    public DoubleLinkedListItem getFirst(){
+    public DoubleLinkedListItem<T> getFirst(){
         return start;
     }
 
-    public DoubleLinkedListItem getLast(){
+    public DoubleLinkedListItem<T> getLast(){
         return end;
     }
 
@@ -49,8 +49,8 @@ class DoubleLinkedList {
 
     /* Function to insert element at begining */
 
-    public void insertAtStart(int val) {
-        DoubleLinkedListItem nptr = new DoubleLinkedListItem(val, null, null);
+    public void insertAtStart(T val) {
+        DoubleLinkedListItem<T> nptr = new DoubleLinkedListItem(val);
         if (start == null) {
             start = nptr;
             end = start;
@@ -64,11 +64,8 @@ class DoubleLinkedList {
 
     /* Function to insert element at end */
 
-    public void insertAtEnd(int val)
-
-    {
-
-        DoubleLinkedListItem nptr = new DoubleLinkedListItem(val, null, null);
+    public void insertAtEnd(T val) {
+        DoubleLinkedListItem<T> nptr = new DoubleLinkedListItem(val);
 
         if (start == null) {
             start = nptr;
@@ -81,23 +78,71 @@ class DoubleLinkedList {
         size++;
     }
 
-    /* Function to insert element at position */
-
-    public void insertAtPos(int val, int pos) {
-        DoubleLinkedListItem nptr = new DoubleLinkedListItem(val, null, null);
-        if (pos == 1) {
+    public void insertAtPos(T val, int pos) {
+        // Создаем элемент
+        DoubleLinkedListItem<T> nptr = new DoubleLinkedListItem(val);
+        if(pos == 1){
             insertAtStart(val);
-            return;
         }
 
-        DoubleLinkedListItem ptr = start;
-        for (int i = 2; i <= size; i++) {
+        DoubleLinkedListItem<T> ptr = start;
+        for (int i = 1; i <= size; i++) {
             if (i == pos) {
-                DoubleLinkedListItem tmp = ptr.getNext();
+                DoubleLinkedListItem<T> tmp = ptr.getNext();
                 ptr.setNext(nptr);
                 nptr.setPrev(ptr);
                 nptr.setNext(tmp);
                 tmp.setPrev(nptr);
+                System.out.println();
+            }
+            ptr = ptr.getNext();
+        }
+        size++;
+    }
+    /* Function to insert element at position */
+
+    public void insertAfter(int val, T data) {
+        // Создаем элемент
+        DoubleLinkedListItem<T> nptr = new DoubleLinkedListItem(val);
+
+        DoubleLinkedListItem<T> ptr = start;
+        for (int i = 1; i <= size; i++) {
+            if(i == size && ptr.data == data){
+                insertAtEnd(data);
+            }
+            else if (ptr.data == data) {
+                DoubleLinkedListItem<T> tmp = ptr.getNext();
+                ptr.setNext(nptr);
+                nptr.setPrev(ptr);
+                nptr.setNext(tmp);
+                tmp.setPrev(nptr);
+                System.out.println();
+            }
+            ptr = ptr.getNext();
+        }
+        size++;
+    }
+
+    public void insertBefore(int valBefore, T data) {
+        DoubleLinkedListItem<T> nptr = new DoubleLinkedListItem(valBefore);
+
+        DoubleLinkedListItem<T> ptr = start;
+        for (int i = 1; i <= size; i++) {
+            System.out.println("ptr.data data " + ptr.data + " " + data);
+
+            if (ptr.data == data) {
+                if(i == 1){
+                    insertAtStart(data);
+                    return;
+                }
+                DoubleLinkedListItem<T> tmp = ptr.getPrev();
+                nptr.setNext(ptr);
+                ptr.setPrev(nptr);
+                nptr.setPrev(tmp);
+                nptr.setNext(nptr);
+            }
+            else {
+                System.out.println("Invalid insert");
             }
             ptr = ptr.getNext();
         }
